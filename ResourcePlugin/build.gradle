@@ -1,0 +1,20 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+}
+
+group = 'com.resource.plugin' // group名
+version = '1.0.0' //版本号
+
+
+// 发布到本地仓库
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../repo'))//这里也可以发布到自己的本地别的目录 eg: repository(url: uri('/Users/maotongfei/Maven/repository'))
+        }
+    }
+}
